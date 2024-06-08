@@ -1,6 +1,11 @@
 import svgwrite
+import os
 
 def generate_svg(total_contributions, current_streak, longest_streak):
+    # Ensure the output directory exists
+    if not os.path.exists('output'):
+        os.makedirs('output')
+
     dwg = svgwrite.Drawing('output/contributions.svg', profile='full', size=('500px', '200px'))
     dwg.add(dwg.rect(insert=(0, 0), size=('500px', '200px'), fill='#1e1e2e'))
     
